@@ -1,0 +1,10 @@
+# install VEP cache
+
+# This is important for performance reasons.  However, should be able to test VEP without it.
+
+# See also here for how to install cache separately in a docker environment: https://www.ensembl.org/info/docs/tools/vep/script/vep_download.html#docker
+# See here for discussion of caches: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html
+
+# to install the cache, try
+# later, perl INSTALL.pl -a cf -s homo_sapiens -y GRCh37,GRCh38 --CACHEDIR /data/D_VEP
+
