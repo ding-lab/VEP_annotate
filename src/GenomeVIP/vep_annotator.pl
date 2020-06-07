@@ -45,7 +45,9 @@ if ($paras{'usedb'}) {
 
     # Cannot use --max_af and other AF-related args here
  
-    $cmd = "/usr/bin/perl $paras{'vep_cmd'} $opts --database --port 3337 --buffer_size 10000  --fork 4 --format vcf $vcf_flag -i $paras{'vcf'} -o $paras{'output'} --force_overwrite  --fasta $paras{'reffasta'}";
+    # "--port 3337" is required for GRCh37, need to pass it as vep_opts
+    #$cmd = "/usr/bin/perl $paras{'vep_cmd'} $opts --database --port 3337 --buffer_size 10000  --fork 4 --format vcf $vcf_flag -i $paras{'vcf'} -o $paras{'output'} --force_overwrite  --fasta $paras{'reffasta'}";
+    $cmd = "/usr/bin/perl $paras{'vep_cmd'} $opts --database --buffer_size 10000  --fork 4 --format vcf $vcf_flag -i $paras{'vcf'} -o $paras{'output'} --force_overwrite  --fasta $paras{'reffasta'}";
 
     print STDERR $cmd . "\n";
     my $errcode = system($cmd); 
