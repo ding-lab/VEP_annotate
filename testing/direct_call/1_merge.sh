@@ -1,21 +1,19 @@
-OUTD="/data/merge_results_direct"
+OUTD="/data/vep_annotate_direct"
 mkdir -p $OUTD
 
-# /diskmnt/Datasets/Reference/GRCh38.d1.vd1/GRCh38.d1.vd1.fa
-REF="/Reference/GRCh38.d1.vd1/GRCh38.d1.vd1.fa"
+REF="/ref/GRCh38.d1.vd1/GRCh38.d1.vd1.fa"
+VCF="/data/merged/filtered.vcf"
+VEP_GZ="/vep/v99/vep-cache.99_GRCh38.tar.gz"
 
-IND="/data/VLD_FilterVCF.out"
-IN_VCF=" \
-$IND/GATK.indel.VLD.vcf \
-$IND/GATK.snp.VLD.vcf \
-$IND/pindel.VLD.vcf \
-$IND/varscan.indel.VLD.vcf \
-$IND/varscan.snp.VLD.vcf "
+VEP_VER="99"
+ASSEMBLY="GRCh38"
 
-OUT="$OUTD/merged.vcf"
+INPUTS="--input_vcf $VCF --reference_fasta $REF --assembly $ASSEMBLY --vep_cache_version $VEP_VER --vep_cache_gz $VEP_GZ"
 
-# Usage: merge_vcf.sh [options] GATK_indel GATK_snv pindel_indel varscan_indel varscan_snv
-CMD="bash ../../src/merge_vcf.sh $@ -o $OUT -R $REF $IN_VCF"
+
+ARGS="--results_dir results --vep_opts \"--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical\""
+
+CMD="/usr/bin/perl /usr/local/somaticwrapper/SomaticWrapper.pl $INPUTS $ARGS"
 
 >&2 echo Running $CMD
 eval $CMD
