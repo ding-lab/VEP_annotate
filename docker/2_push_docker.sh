@@ -5,7 +5,7 @@ if [ $NO_PUSH != 0 ]; then
     exit 1
 fi
 
-CMD="docker push $DOCKER_IMAGE"
+CMD="docker push $IMAGE"
 echo $CMD
 eval $CMD
 
