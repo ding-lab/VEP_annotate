@@ -10,10 +10,9 @@ ASSEMBLY="GRCh38"
 
 INPUTS="--input_vcf $VCF --reference_fasta $REF --assembly $ASSEMBLY --vep_cache_version $VEP_VER --vep_cache_gz $VEP_GZ"
 
-
 ARGS="--results_dir results --vep_opts \"--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical\""
 
-CMD="/usr/bin/perl /usr/local/somaticwrapper/SomaticWrapper.pl $INPUTS $ARGS"
+CMD="/usr/bin/perl /usr/local/TinDaisy-VEP/SomaticWrapper.pl $INPUTS $ARGS"
 
 >&2 echo Running $CMD
 eval $CMD
