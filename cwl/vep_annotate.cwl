@@ -5,7 +5,7 @@ $namespaces:
 id: vep_annotate
 baseCommand:
   - /usr/bin/perl
-  - /usr/local/somaticwrapper/SomaticWrapper.pl
+  - /usr/local/TinDaisy-VEP/SomaticWrapper.pl
 inputs:
   - id: input_vcf
     type: File
@@ -49,11 +49,6 @@ outputs:
       glob: results/vep/output_vep.vcf
 label: vep_annotate
 arguments:
-  - position: 99
-    prefix: ''
-    separate: false
-    shellQuote: false
-    valueFrom: vep_annotate
   - position: 0
     prefix: '--results_dir'
     valueFrom: results
