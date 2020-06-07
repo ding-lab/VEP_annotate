@@ -1,6 +1,0 @@
-remove_filtered: false  # type "boolean" (optional)
-bypass: false  # type "boolean" (optional)
-dryrun: false  # type "boolean" (optional)
-input_vcf:  # type "File"
-    class: File
-    path: a/file/path

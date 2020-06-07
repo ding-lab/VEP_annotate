@@ -1,4 +1,0 @@
-remove_filtered: false  # type "boolean" (optional)
-input_vcf:  # type "File"
-    class: File
-    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/merged/merged.vcf
