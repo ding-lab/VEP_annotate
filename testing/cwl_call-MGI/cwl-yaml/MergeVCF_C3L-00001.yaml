@@ -1,0 +1,18 @@
+varscan_snv:  # type "File"
+    class: File
+    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/VLD_FilterVCF.out/varscan.snp.VLD.vcf 
+varscan_indel:  # type "File"
+    class: File
+    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/VLD_FilterVCF.out/varscan.indel.VLD.vcf 
+pindel:  # type "File"
+    class: File
+    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/VLD_FilterVCF.out/pindel.VLD.vcf 
+gatk_snv:  # type "File"
+    class: File
+    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/VLD_FilterVCF.out/GATK.snp.VLD.vcf 
+gatk_indel:  # type "File"
+    class: File
+    path: /gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001/VLD_FilterVCF.out/GATK.indel.VLD.vcf 
+reference:  # type "File"
+    class: File
+    path: /gscmnt/gc2521/dinglab/mwyczalk/somatic-wrapper-data/image.data/A_Reference/GRCh38.d1.vd1/GRCh38.d1.vd1.fa
