@@ -57,9 +57,6 @@ GetOptions(
     'vep_opts=s' => \$vep_opts,
 ) or die "Error parsing command line args.\n$usage\n";
 
-die $usage unless @ARGV >= 1;
-my ( $step_number ) = @ARGV;
-
 # automatically generated scripts in runtime
 my $job_files_dir="$results_dir/runtime";  # OUTPUT PORT
 system("mkdir -p $job_files_dir");
