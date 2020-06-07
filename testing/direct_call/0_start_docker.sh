@@ -13,5 +13,5 @@ MOUNT="$MOUNT $REF_ROOT:/ref"
 DATA_ROOT="/gscmnt/gc2508/dinglab/mwyczalk/GermlineCaller.Testing/C3L-00001"
 MOUNT="$MOUNT $DATA_ROOT:/data"
 
-cd ../.. && bash docker/WUDocker/start_docker.sh $@ -I $IMAGE $MOUNT
+cd ../.. && bash docker/WUDocker/start_docker.sh -M MGI -P $@ -I $IMAGE $MOUNT
 
