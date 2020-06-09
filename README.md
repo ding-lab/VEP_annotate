@@ -1,4 +1,4 @@
-# TinDaisy-VEP
+# VEP Annotate
 
 VEP annotator based on TinDaisy-Core
 This supercedes TinDaisy-Core VEP annotation
