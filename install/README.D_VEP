@@ -1,8 +1,6 @@
 # Install VEP cache
 
-This is important for performance reasons.  However, can test VEP without it.
-
-We are using tindaisy-vep docker image for installation.
+VEP cache is important for performance reasons.  However, can test VEP without it.
 
 See also here for how to install cache using ensemble docker : https://www.ensembl.org/info/docs/tools/vep/script/vep_download.html#docker
 See here for discussion of caches: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html

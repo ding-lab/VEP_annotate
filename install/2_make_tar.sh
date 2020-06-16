@@ -1,6 +1,7 @@
 # We compress the VEP cache so it can be passed to our pipeline as a file
+CACHE_VERSION="v99"
 
-CACHED="/data/v99" 
+CACHED="/data/$CACHE_VERSION"
 
 # VR (= version _ reference) is from VEP, e.g.,
 #   /data/v99/homo_sapiens/99_GRCh38/
