@@ -16,8 +16,12 @@ INPUTS="--input_vcf $VCF --reference_fasta $REF --assembly $ASSEMBLY --vep_cache
 #--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical
 
 # Don't expect to use TinDaisy args below, but keeping them around for sake of reproducing results
-ARGS_TINDAISY="--af --max_af --af_1kg --af_esp --af_gnomad"
-VEP_ARGS="--failed 0 --everything --af_exac $ARGS_TINDAISY --buffer_size 10000  --fork 4"
+#ARGS_TINDAISY="--af --max_af --af_1kg --af_esp --af_gnomad"
+# VEP_ARGS="--failed 0 --everything --af_exac --buffer_size 10000  --fork 4"    - failed
+# VEP_ARGS="--failed 0 --everything --af_exac --buffer_size 10000  --fork 2"    - failed
+# VEP_ARGS="--failed 0 --everything --af_exac --buffer_size 5000  --fork 2"    - failed
+#VEP_ARGS="--failed 0 --everything --af_exac --buffer_size 50  --fork 2"     # - this worked
+VEP_ARGS="--failed 0 --everything --af_exac --buffer_size 500  --fork 4"     # - this seems to be working...
 
 
 ARGS="--results_dir results --vep_opts \"$VEP_ARGS\""
