@@ -2,7 +2,7 @@
 
 # Policy is to make all public images on katmai
 #IMAGE="mwyczalkowski/tindaisy-vep"
-IMAGE="mwyczalkowski/vep-annotate:20200608"
+IMAGE="mwyczalkowski/vep-annotate:20200617"
 
 # If variable below evaluates to true, prevent `docker push`
 NO_PUSH=0

@@ -48,20 +48,27 @@ outputs:
     outputBinding:
       glob: results/vep/output_vep.vcf
 label: vep_annotate
+
+# Arguments differ between TinDaisy and TinJasmine
 arguments:
   - position: 0
     prefix: '--results_dir'
     valueFrom: results
   - position: 0
     prefix: '--vep_opts'
+
 # Value for TinDaisy
 #    valueFrom: '--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical'
+# Also, these parameters were automatically applied by TinDaisy but no longer are (so should probably be added too)
+# --af --max_af --af_1kg --af_esp --af_gnomad
+# --buffer_size 10000  --fork 4
+
 # Value for TinJasmine
-    valueFrom: '--failed 0 --everything --af_exac'
+    valueFrom: '--buffer_size 10000  --fork 4 --failed 0 --everything --af_exac'
 requirements:
   - class: ShellCommandRequirement
   - class: DockerRequirement
-    dockerPull: 'mwyczalkowski/vep-annotate:20200608'
+    dockerPull: 'mwyczalkowski/vep-annotate:20200617'
   - class: InlineJavascriptRequirement
   - class: ResourceRequirement
     ramMin: 8000
