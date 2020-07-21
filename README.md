@@ -35,7 +35,7 @@ contents of the VEP cache, created with `tar -zcf`, must be provided.
 
 ### Creating VEP Cache
 
-TODO
+VEP Cache creation is described in install/README.md
 
 ## VEP arguments 
 

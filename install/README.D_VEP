@@ -13,6 +13,11 @@ Starts docker container and maps a path DATA_HOST to /data.
 
 Calls VEP scripts to download and process cache.  
 
+-> getting errors here:
+ERROR: Could not change directory to vep
+
+Unable to proceed, keep working on this
+
 ## 2_make_tar.sh
 
 Creates .tar.gz file which is needed for fast annotation
