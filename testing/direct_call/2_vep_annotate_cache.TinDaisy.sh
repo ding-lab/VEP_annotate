@@ -18,7 +18,7 @@ INPUTS="--input_vcf $VCF --reference_fasta $REF --assembly $ASSEMBLY --vep_cache
 
 CUSTOM_ARGS="ClinVar,vcf,exact,0,AF_ESP,AF_EXAC,AF_TGP,ALLELEID,CLNDN,CLNDNINCL,CLNDISDB,CLNDISDBINCL,CLNHGVS,CLNREVSTAT,CLNSIG,CLNSIGCONF,CLNSIGINCL,CLNVC,CLNVCSO,CLNVI,DBVARID,GENEINFO,MC,ORIGIN,RS,SSR"
 
-#VEP_OPTS="--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4"
+VEP_OPTS="--hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot --xref_refseq --sift b --tsl --canonical --total_length --allele_number --variant_class --biotype --appris --flag_pick_allele --check_existing --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4"
 
 ARGS="--results_dir $OUTD --custom_filename $CUSTOM_FILENAME --custom_args $CUSTOM_ARGS --vep_opts \"$VEP_OPTS\""
 
