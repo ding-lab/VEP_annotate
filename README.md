@@ -1,13 +1,8 @@
 # VEP Annotate
 
-VEP annotator based on TinDaisy-Core 
+VEP annotator based on TinDaisy-Core and GenomeVIP
 
-It is essentially a stripped-down version of TinDaisy-Core which retains just the VEP annotation 
-functionality.  This project used to be called TinDaisy-VEP
-
-OLD IMAGE="mwyczalkowski/tindaisy-vep"
 IMAGE="mwyczalkowski/vep-annotate:20200608"
-
 
 ## VEP Cache 
 
@@ -39,14 +34,27 @@ VEP Cache creation is described in install/README.md
 
 ## VEP arguments 
 
-Arbitrary arguments may be passed to VEP with `--vep_opts` argument to `src/vep_annotate.sh`.  This is set as an
-argument in the CWL version.  
+Arbitrary arguments may be passed to VEP with `--vep_opts` argument to `src/vep_annotate.sh`.  
 
 VEP arguments will in general differ for different pipelines, with TinDaisy and TinJasmine using different values.
 At this time, `--vep_opts` is hard-coded in the CWL, requiring different CWL for the two pipelines.  Future development
 may make this more general.
 
 Note also that to use GRCh37, the following additional VEP argument is required: `--port 3337`
+
+The VEP argument `--flag_pick` is always added to VEP invocation.
+
+## Custom annotation
+
+Support for [VEP custom annotation](http://useast.ensembl.org/info/docs/tools/vep/script/vep_custom.html)
+is provided with the following two arguments:
+```
+--custom_filename s: Path to VEP custom annotation file.  
+--custom_args s: Arguments passed to VEP custom annotation.  Required if --custom_filename defined.  
+```
+Example of `custom_args`: `ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN`
+
+Custom annotation is required for identifying ClinVar variants.
 
 ## Authors
 

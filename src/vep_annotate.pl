@@ -40,6 +40,7 @@
 # 
 # Output is $results_dir/vep/output_vep.vcf
 
+
 sub vep_annotate {
     my $results_dir = shift;
     my $job_files_dir = shift;
@@ -51,6 +52,8 @@ sub vep_annotate {
     my $preserve_cache_gz = shift;  
     my $input_vcf = shift;  
     my $vep_opts = shift;  
+    my $custom_filename = shift;  
+    my $custom_args = shift;  
 
     # assembly and cache_version may be blank; if so, not passed on command line to vep
     # We now require all output to be vcf format (not vep), so that VCF filtering can take place 
@@ -68,6 +71,7 @@ sub vep_annotate {
     } else {
         $vep_opts = "$vep_opts --flag_pick";
     }
+    print STDERR "Adding --flag_pick to VEP call\n";
     # remove " and ' from vep_opts if present
     $vep_opts =~ s/\"//g;
     $vep_opts =~ s/\'//g;
@@ -76,7 +80,7 @@ sub vep_annotate {
     # else if $cache_dir is a .tar.gz file, extract its contents to ./vep-cache
     # else, use VEP DB mode
     if (defined $cache_dir) {
-        die "\nError: Cache dir $cache_dir does not exist\n" if (! -d $cache_dir);
+        die "\nERROR Cache dir $cache_dir does not exist\n" if (! -d $cache_dir);
         $use_vep_db = 0;
     } elsif ( defined $cache_gz and $cache_gz =~ /\.tar\.gz/ ) {
         $cache_dir = "./vep-cache";
@@ -91,6 +95,19 @@ sub vep_annotate {
     } else {
         print STDERR "Using online VEP DB.  Note that MAX_AF (used by af filter) will not be evaluated\n";
     }
+
+    # if $custom_filename is defined, confirm it exists, and that $custom_args are also defined
+    # Then create argument to be added to vep_opts:
+    #   --custom custom_filename,custom_args
+    # It is assumed that custom_args will be in format as described here: http://useast.ensembl.org/info/docs/tools/vep/script/vep_custom.html
+    # Example: ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN
+    if (defined $custom_filename) {
+        die "\nERROR custom_filename defined but custom_args are not\n" if (!defined $custom_args);
+        die "\nERROR custom_filename $custom_filename does not exist\n" if (! -d $custom_filename);
+        my $custom_opts = "--custom $custom_filename,$custom_args";
+        $vep_opts = "$vep_opts $custom_opts";
+        print STDERR "Adding custom filter to VEP:\n$custom_opts\n";
+    fi
 
     my $vep_output_fn = "$filter_results/output_vep.vcf";
 
@@ -108,9 +125,10 @@ sub vep_annotate {
     open(OUT, ">$runfn") or die $!;
     print OUT <<"EOF";
 #!/bin/bash
+#
 
 export JAVA_OPTS=\"-Xms256m -Xmx512m\"
-$SWpaths::perl $SWpaths::gvip_dir/vep_annotator.pl $config_fn
+/usr/bin/perl /usr/local/TinDaisy-VEP/src/vep_annotator.pl $config_fn
 
 rc=\$? 
 if [[ \$rc != 0 ]]; then 
@@ -166,7 +184,7 @@ sub write_vep_input {
     print OUT <<"EOF";
 $module.vcf = $vcf
 $module.output = $output_fn
-$module.vep_cmd = $SWpaths::vep_cmd
+$module.vep_cmd = /usr/local/ensembl-vep/vep
 $module.cachedir = $cache_dir
 $module.reffasta = $reference
 $module.usedb = $use_vep_db  

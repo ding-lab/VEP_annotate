@@ -5,7 +5,7 @@ $namespaces:
 id: vep_annotate
 baseCommand:
   - /usr/bin/perl
-  - /usr/local/TinDaisy-VEP/SomaticWrapper.pl
+  - /usr/local/TinDaisy-VEP/src/SomaticWrapper.pl
 inputs:
   - id: input_vcf
     type: File
