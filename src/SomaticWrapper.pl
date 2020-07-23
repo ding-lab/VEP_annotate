@@ -7,11 +7,7 @@ use warnings;
 use Getopt::Long qw(GetOptions);
 use File::Basename;
 
-# All paths are defined in SWpaths.pm
-# They are accessed as, e.g., $SWpaths::sw_dir
-use SWpaths;
-
-require("src/vep_annotate.pl");
+require("vep_annotate.pl");
 
 (my $usage = <<OUT) =~ s/\t+//g;
 Usage: perl $0 [options] 
@@ -33,10 +29,12 @@ VEP annotation on a given VCF file
     NOTE: Online VEP database lookups a) uses online database (so cache isn't installed) b) does not use tmp files
       It is meant to be used for testing and lightweight applications.  Use the cache for better performance.
       See discussion: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html 
+--custom_filename s: Path to VEP custom annotation file.  See http://useast.ensembl.org/info/docs/tools/vep/script/vep_custom.html
+--custom_args s: Arguments passed to VEP custom annotation.  Required if --custom_filename defined.  Example:
+    "ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN"
 OUT
 
 my $results_dir = ".";  
-my $skip;
 my $input_vcf;
 my $reference_fasta;
 my $vep_cache_version;
@@ -44,10 +42,11 @@ my $vep_cache_dir;
 my $vep_cache_gz;
 my $vep_opts;
 my $assembly;
+my $custom_filename;
+my $custom_args;
 
 GetOptions(
     'results_dir=s' => \$results_dir,
-    'skip=s' => \$skip,
     'input_vcf=s' => \$input_vcf,
     'reference_fasta=s' => \$reference_fasta,
     'assembly=s' => \$assembly,
@@ -55,6 +54,8 @@ GetOptions(
     'vep_cache_dir=s' => \$vep_cache_dir,
     'vep_cache_gz=s' => \$vep_cache_gz,
     'vep_opts=s' => \$vep_opts,
+    'custom_filename=s' => \$custom_filename,
+    'custom_args=s' => \$custom_args,
 ) or die "Error parsing command line args.\n$usage\n";
 
 # automatically generated scripts in runtime
@@ -64,4 +65,5 @@ system("mkdir -p $job_files_dir");
 die("input_vcf undefined \n") unless $input_vcf;
 die("reference_fasta undefined \n") unless $reference_fasta;
 my $preserve_cache_gz = 0;  # get rid of uncompressed cache directory if expanded from .tar.gz
-vep_annotate($results_dir, $job_files_dir, $reference_fasta, $assembly, $vep_cache_version, $vep_cache_dir, $vep_cache_gz, $preserve_cache_gz, $input_vcf, $vep_opts);
+vep_annotate($results_dir, $job_files_dir, $reference_fasta, $assembly, $vep_cache_version, $vep_cache_dir, $vep_cache_gz, $preserve_cache_gz, $input_vcf, $vep_opts,
+    $custom_filename, $custom_args);

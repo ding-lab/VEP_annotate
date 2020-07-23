@@ -48,10 +48,10 @@ RUN cd /usr/local \
 
 COPY docker/vimrc /root/.vimrc
 
-COPY . /usr/local/TinDaisy-VEP
-WORKDIR /usr/local/TinDaisy-VEP
+COPY . /usr/local/VEP_annotate
+WORKDIR /usr/local/VEP_annotate
 
-ENV PERL5LIB=/usr/local/TinDaisy-VEP
+ENV PERL5LIB=/usr/local/VEP_annotate/src
 ENV LC_ALL="C"
 
 CMD ["/bin/bash"]
