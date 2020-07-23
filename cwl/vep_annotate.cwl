@@ -58,6 +58,12 @@ inputs:
     doc: >-
       Arguments passed to VEP custom annotation.  Required if custom_filename
       defined
+  - id: vep_opts
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--vep_opts'
+    doc: Options passed to VEP
 outputs:
   - id: output_dat
     type: File
@@ -68,17 +74,9 @@ arguments:
   - position: 0
     prefix: '--results_dir'
     valueFrom: results
-  - position: 0
-    prefix: '--vep_opts'
-    valueFrom: >-
-      --hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot
-      --xref_refseq --sift b --tsl --canonical --total_length --allele_number
-      --variant_class --biotype --appris --flag_pick_allele --check_existing
-      --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af
-      --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4 
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
   - class: DockerRequirement
-    dockerPull: 'mwyczalkowski/vep-annotate:20200617'
+    dockerPull: 'mwyczalkowski/vep-annotate:20200722'
   - class: InlineJavascriptRequirement
