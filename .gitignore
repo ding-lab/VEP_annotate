@@ -4,7 +4,7 @@ runtime
 COSMIC_credentials.dat
 StrelkaDemo.results/
 results/
-output
+output/
 tmp/
 Homo_sapiens_assembly19.COST16011_region.fa
 *.idx
