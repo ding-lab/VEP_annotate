@@ -2,7 +2,7 @@ class: CommandLineTool
 cwlVersion: v1.0
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
-id: vep_annotate
+id: vep_annotate.TinDaisy
 baseCommand:
   - /usr/bin/perl
   - /usr/local/TinDaisy-VEP/src/SomaticWrapper.pl
@@ -63,7 +63,7 @@ outputs:
     type: File
     outputBinding:
       glob: results/vep/output_vep.vcf
-label: vep_annotate
+label: vep_annotate TinDaisy
 arguments:
   - position: 0
     prefix: '--results_dir'
@@ -80,5 +80,5 @@ requirements:
   - class: ResourceRequirement
     ramMin: 8000
   - class: DockerRequirement
-    dockerPull: 'mwyczalkowski/vep-annotate:20200617'
+    dockerPull: 'mwyczalkowski/vep-annotate:20200722'
   - class: InlineJavascriptRequirement
