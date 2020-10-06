@@ -2,10 +2,10 @@ class: CommandLineTool
 cwlVersion: v1.0
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
-id: vep_annotate.TinJasmine
+id: vep_annotate_tin_jasmine
 baseCommand:
   - /usr/bin/perl
-  - /usr/local/TinDaisy-VEP/src/SomaticWrapper.pl
+  - /usr/local/VEP_annotate/src/SomaticWrapper.pl
 inputs:
   - id: input_vcf
     type: File

@@ -5,7 +5,7 @@ source /opt/lsf9/conf/lsf.conf
 
 CONFIG="cromwell-config-db.dat"
 
-CWL="../../cwl/vep_annotate.cwl"
+CWL="../../cwl/vep_annotate.TinDaisy.cwl"
 YAML="cwl-yaml/vep_annotate.TinDaisy-C3L-00908.yaml"
 
 
