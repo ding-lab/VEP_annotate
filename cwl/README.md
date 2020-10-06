@@ -19,3 +19,8 @@ properties of the workflow
 
 Note that TinJasmine workflow will need to be updated to either run the TinJasmine CWL or
 have default values added
+
+For custom annotation, required for ClinVar rescue, using custom arguments from 
+    testing/direct_call/2_vep_annotate_cache.TinDaisy.sh
+These are defined as arguments in vep_annotate.TinDaisy.cwl
+

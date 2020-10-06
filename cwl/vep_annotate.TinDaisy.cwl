@@ -2,7 +2,7 @@ class: CommandLineTool
 cwlVersion: v1.0
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
-id: vep_annotate.TinDaisy
+id: vep_annotate_tin_daisy
 baseCommand:
   - /usr/bin/perl
   - /usr/local/TinDaisy-VEP/src/SomaticWrapper.pl
@@ -50,14 +50,6 @@ inputs:
     doc: Path to VEP custom annotation file
     secondaryFiles:
       - .tbi
-  - id: custom_args
-    type: string?
-    inputBinding:
-      position: 0
-      prefix: '--custom_args'
-    doc: >-
-      Arguments passed to VEP custom annotation.  Required if custom_filename
-      defined
 outputs:
   - id: output_dat
     type: File
@@ -76,6 +68,10 @@ arguments:
       --variant_class --biotype --appris --flag_pick_allele --check_existing
       --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af
       --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4 
+  - position: 0
+    prefix: '--custom_args'
+    valueFrom: >-
+      ClinVar,vcf,exact,0,AF_ESP,AF_EXAC,AF_TGP,ALLELEID,CLNDN,CLNDNINCL,CLNDISDB,CLNDISDBINCL,CLNHGVS,CLNREVSTAT,CLNSIG,CLNSIGCONF,CLNSIGINCL,CLNVC,CLNVCSO,CLNVI,DBVARID,GENEINFO,MC,ORIGIN,RS,SSR
 requirements:
   - class: ResourceRequirement
     ramMin: 8000
