@@ -56,4 +56,10 @@ for details about this dataset
 
 It has been copied to katmai here:/home/mwyczalk_test/Projects/TinDaisy/testing/C3L-00908-data/dat
 
+## MNP Filter output
+
+Input into VEP_annotate in TinDaisy2 the output of mnp_filter
+
+/gscmnt/gc2541/cptac3_analysis/cromwell-workdir/cromwell-executions/tindaisy-hotspot.cwl/47c63123-dab6-417b-a431-c9aa9589e6e4/results/call-mnp_filter/execution/MNP_combined.vcf
+
 

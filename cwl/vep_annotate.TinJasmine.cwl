@@ -42,6 +42,22 @@ inputs:
     doc: >-
       if defined, extract contents into "./vep-cache" and use VEP cache. 
       Otherwise, perform (much slower) online VEP DB lookups
+  - id: custom_filename
+    type: File?
+    inputBinding:
+      position: 0
+      prefix: '--custom_filename'
+    doc: Path to VEP custom annotation file
+    secondaryFiles:
+      - .tbi
+  - id: custom_args
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--custom_args'
+    doc: >-
+      Arguments passed to VEP custom annotation.  Required if custom_filename
+      defined
 outputs:
   - id: output_dat
     type: File
