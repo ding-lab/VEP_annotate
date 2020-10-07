@@ -63,3 +63,14 @@ Input into VEP_annotate in TinDaisy2 the output of mnp_filter
 /gscmnt/gc2541/cptac3_analysis/cromwell-workdir/cromwell-executions/tindaisy-hotspot.cwl/47c63123-dab6-417b-a431-c9aa9589e6e4/results/call-mnp_filter/execution/MNP_combined.vcf
 
 
+## ad hoc testing notes:
+
+Test of cwl_call-MGI/1_run_vep_annotate.sh with ClinVar annotation (10/7/20)
+with custom annotation believed to be appropriate for ClinVar rescue downstream
+    vep_annotate.TinDaisy.cwl commit 7cebc23b9
+
+/gscmnt/gc2541/cptac3_analysis/cromwell-workdir/cromwell-executions/vep_annotate.TinDaisy.cwl/62de35d0-29ad-4659-a896-4862e8375ef5/call-vep_annotate.TinDaisy.cwl
+
+Result VCF:
+/gscmnt/gc2541/cptac3_analysis/cromwell-workdir/cromwell-executions/vep_annotate.TinDaisy.cwl/62de35d0-29ad-4659-a896-4862e8375ef5/call-vep_annotate.TinDaisy.cwl/execution/results/vep/output_vep.vcf
+
