@@ -55,6 +55,7 @@ is provided with the following two arguments:
 Example of `custom_args`: `ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN`
 
 ClinVar VEP custom annotation file can be obtained here: ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/
+Note that the associated index `.tbi` file must also be provided
 
 Custom annotation is required for identifying ClinVar variants.
 
