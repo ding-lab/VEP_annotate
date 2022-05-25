@@ -10,7 +10,7 @@ fi
 # Build needs to take place in root directory of project
 cd ..
 
-CMD=" docker build -t $IMAGE -f docker/Dockerfile ."
+CMD=" docker build -t $IMAGE_V99 -f docker/Dockerfile.v99 ."
 echo $CMD
 eval $CMD
 

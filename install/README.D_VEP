@@ -5,19 +5,14 @@ VEP cache is important for performance reasons.  However, can test VEP without i
 See also here for how to install cache using ensemble docker : https://www.ensembl.org/info/docs/tools/vep/script/vep_download.html#docker
 See here for discussion of caches: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html
 
-## 0_start_docker.sh
+Installation of VEP cache is version-specific and proceeds as follows:
+1. Install cache (and FASTA).  This is done from within docker container
+2. compress cache.  This is done to simplify staging for Cromwell.  While we can download the cache file
+   directly, it will not contain the FASTA and is surprisingly slow.
 
-Starts docker container and maps a path DATA_HOST to /data.  
+Installation on katmai here: /diskmnt/Projects/cptac/database
 
-## 1_install_cache.sh
+/diskmnt/Projects/cptac/database/VEP/v99/vep-cache.99_GRCh38.tar.gz
+/diskmnt/Projects/cptac/database/VEP/v100/vep-cache.100_GRCh38.tar.gz
+/diskmnt/Projects/cptac/database/VEP/v102/vep-cache.102_GRCh38.tar.gz
 
-Calls VEP scripts to download and process cache.  
-
--> getting errors here:
-ERROR: Could not change directory to vep
-
-Unable to proceed, keep working on this
-
-## 2_make_tar.sh
-
-Creates .tar.gz file which is needed for fast annotation

@@ -1,13 +1,9 @@
-Build docker image containing TinDaisy-Core and all necessary software to run it.
+Build docker image needed to run SomaticWrapper.pl vep annotation
 
-Currently building two images:
-* mwyczalkowski/tindaisy-core
-* mwyczalkowski/tindaisy-vep
-
-the tindaisy-vep image is a subset of tindaisy-core, with only VEP annotation-specific installation
-
-Note that re-building tindaisy-core may fail because of updated versions of downloaded software
-May be necessary to update Dockerfile dependencies or specify specific software versions
+Three versions of VEP currently supported:
+* VEP v99 / gencode v33
+* VEP v100 / gencode v34
+* VEP v102 / gencode v36
 
 [TinDaisy](https://github.com/ding-lab/TinDaisy) is an associated CWL-based workflow wrapper
 which includes TinDaisy-Core

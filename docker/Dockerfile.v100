@@ -39,12 +39,13 @@ RUN cpanm Archive::Zip DBD::mysql DBI
 
 # install VEP - we do not install cache into the image, it will be downloaded during setup
 # See here for discussion of caches: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html
-# Cache dir will be /data/D_Ensembl
+# Will also install all available plugins, so that gnomAD can be used in the future
 
 RUN cd /usr/local \
-    && git clone https://github.com/Ensembl/ensembl-vep.git  \
+    && git clone https://github.com/Ensembl/ensembl-vep.git \
     && cd /usr/local/ensembl-vep \
-    && perl INSTALL.pl /data/D_Ensembl -a a
+    && git checkout release/100.4 \
+    && perl INSTALL.pl -n -a ap --PLUGINS all 
 
 COPY docker/vimrc /root/.vimrc
 
