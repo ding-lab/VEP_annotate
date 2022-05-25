@@ -24,3 +24,29 @@ For custom annotation, required for ClinVar rescue, using custom arguments from
     testing/direct_call/2_vep_annotate_cache.TinDaisy.sh
 These are defined as arguments in vep_annotate.TinDaisy.cwl
 
+## Versions
+
+### Docker versions
+
+#### Version 'mwyczalkowski/vep-annotate:20200722'
+This has been used for CPTAC3 analysis, and should continue to be used.
+* Is VEP v100, but CPTAC3 has been using v99 cache 
+
+The above docker version is used in:
+* `vep_annotate.TinDaisy.cwl`
+* `vep_annotate.TinJasmine.cwl`
+* `vep_annotate.cwl`
+
+#### 'mwyczalkowski/vep-annotate:20220505'
+Updated build with better controlled VEP versions.  Comes with:
+* 'mwyczalkowski/vep-annotate:20220505-v99'
+* 'mwyczalkowski/vep-annotate:20220505-v100'
+* 'mwyczalkowski/vep-annotate:20220505-v102'
+
+Note that the associated CWL files (listed below) have the assembly (GRCh38) and version as fixed arguments 
+* vep_annotate.TinDaisy.v100.cwl
+* vep_annotate.TinDaisy.v102.cwl
+* vep_annotate.TinDaisy.v99.cwl
+As a results, these arguments are remove from the template file `vep_annotate.TinDaisy.vXX-template.yaml`
+
+Appropriately version VEP caches should also be used
