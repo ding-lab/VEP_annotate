@@ -1,0 +1,14 @@
+custom_filename:  # type "File" (optional)
+    class: File
+    path: /storage1/fs1/m.wyczalkowski/Active/Primary/Resources/Databases/ClinVar/GRCh38/20200706/clinvar_20200706.vcf.gz
+vep_cache_gz:  # type "File" (optional)
+    class: File
+    path: /storage1/fs1/m.wyczalkowski/Active/Primary/Resources/Databases/VEP/v99/vep-cache.99_GRCh38.tar.gz
+reference_fasta:  # type "File"
+    class: File
+    path: /storage1/fs1/dinglab/Active/Resources/References/GRCh38.d1.vd1/GRCh38.d1.vd1.fa
+
+# For demo, using input of run CTSP-ACY0.ALQ_6770b76a.WGS for TinDaisy batch 27c.DLBCL_110-refilter
+input_vcf:  # type "File"
+    class: File
+    path: /storage1/fs1/m.wyczalkowski/Active/cromwell-data/cromwell-workdir/cromwell-executions/tindaisy2.6.cwl/eb186d6d-d6dd-42b4-a286-0e5436ae8de9/call-merge_vcf_td/execution/output/merged.vcf

@@ -5,10 +5,10 @@ source /opt/ibm/lsfsuite/lsf/conf/lsf.conf
 
 PWD=$(pwd)
 CWL_ROOT_H=$PWD/../..
-CWL="$CWL_ROOT_H/cwl/XXX.cwl"
+CWL="$CWL_ROOT_H/cwl/vep_annotate.TinDaisy.v99.cwl"
 
 CONFIG="dat/cromwell-config-db.compute1-filedb.dat"
-YAML="dat/XXX.yaml"
+YAML="dat/vep_annotate.TinDaisy.demo.yaml"
 
 # Cromwell v78 
 JAVA="/opt/java/openjdk/bin/java"
