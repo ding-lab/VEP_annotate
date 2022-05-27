@@ -69,5 +69,5 @@ requirements:
   - class: ResourceRequirement
     ramMin: 8000
   - class: DockerRequirement
-    dockerPull: 'mwyczalkowski/vep-annotate:20220505-v100'
+    dockerPull: 'mwyczalkowski/vep-annotate:20220527-v100'
   - class: InlineJavascriptRequirement
