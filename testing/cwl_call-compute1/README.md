@@ -1,24 +1,25 @@
-Developing testing on compute1
+# Setup
+Currently using file-based cromwell database for one-off runs
 
-Past work:
+## WORKFLOW_ROOT
+Prior to running, be sure to update the template Cromwell configuration to point to an appropirate work directory, which will
+typically be different for each user.  As an example, for user `m.wyczalkowski`, the destination directory may be,
+    WORKFLOW_ROOT="/scratch1/fs1/dinglab/m.wyczalkowski/cromwell-data"
 
-* /home/m.wyczalkowski/Projects/TinDaisy/CromwellRunner/RIS-Preliminary
-    CromwellRunner development on compute1
-  cromwell-config:
-      /storage1/fs1/home1/Active/home/m.wyczalkowski/Projects/TinDaisy/CromwellRunner/RIS-Preliminary/dat/cromwell-config-db.dat
-  copied here as cromwell-config-db.compute1.dat
+Specifically,
+* Create `$WORKFLOW_ROOT` if it does not exist
+    * Also create `$WORKFLOW_ROOT/logs`
+* `cp dat/cromwell-config-db.compute1-filedb.template.dat dat/cromwell-config-db.compute1-filedb.dat`
+* Edit `dat/cromwell-config-db.compute1-filedb.dat` to replace all instances of the string WORKFLOW_ROOT with the
+  appropriate value
 
-  Definitions:
-    /storage1/fs1/home1/Active/home/m.wyczalkowski/Projects/TinDaisy/CromwellRunner/RIS-Preliminary/workflow.MutectDemo/project_config.MutectDemo.compute1.sh
+# Starting
 
-* More recent runs:
-  /home/m.wyczalkowski/Projects/TinDaisy/TinDaisy/demo/MutectDemo/compute1-dev
+Can run directly from command line and make sure terminal stays open.  This is the easiest and good for initial
+testing
+```
+bash 0_start_docker-compute1_cromwell.sh
+bash 1_run_cromwell_demo.sh
+```
 
-* CromwellRunner compute1 branch
-
-GermlineCaller - this may be the most advanced
-    * /home/m.wyczalkowski/Projects/GermlineCaller/GATK_GermlineCaller/testing/cwl_call/cromwell-compute1
-
-# configuration
-
-WORKFLOW_ROOT="/storage1/fs1/m.wyczalkowski/Active/cromwell-data/"
+This can also be run in tmux session or submitted via bsub
