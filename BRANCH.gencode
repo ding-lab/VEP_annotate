@@ -10,3 +10,11 @@ IMAGE_V100="mwyczalkowski/vep-annotate:20220505-v100"
 IMAGE_V102="mwyczalkowski/vep-annotate:20220505-v102"
 
 Scripts are also updated to download and compress VEP cache
+
+These arguments are being removed from vep_annotator.pl:
+    --buffer_size 10000  --fork 4
+They will need to be passed through CWL.  This addition is made in 
+IMAGE_V99="mwyczalkowski/vep-annotate:20220527-v99"
+IMAGE_V100="mwyczalkowski/vep-annotate:20220527-v100"
+IMAGE_V102="mwyczalkowski/vep-annotate:20220527-v102"
+
