@@ -60,7 +60,7 @@ arguments:
     valueFrom: '--buffer_size 500  --fork 4 --failed 0 --everything --af_exac'
   - position: 0
     prefix: '--vep_cache_version'
-    valueFrom: '100'
+    valueFrom: '102'
   - position: 0
     prefix: '--assembly'
     valueFrom: GRCh38
