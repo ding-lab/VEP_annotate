@@ -47,6 +47,11 @@ Note that the associated CWL files (listed below) have the assembly (GRCh38) and
 * vep_annotate.TinDaisy.v100.cwl
 * vep_annotate.TinDaisy.v102.cwl
 * vep_annotate.TinDaisy.v99.cwl
+* vep_annotate.TinJasmine.v100.cwl
+* vep_annotate.TinJasmine.v102.cwl
+* vep_annotate.TinJasmine.v99.cwl
 As a results, these arguments are remove from the template file `vep_annotate.TinDaisy.vXX-template.yaml`
 
 Appropriately version VEP caches should also be used
+
+

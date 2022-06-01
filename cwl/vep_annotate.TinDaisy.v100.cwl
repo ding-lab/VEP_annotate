@@ -2,7 +2,7 @@ class: CommandLineTool
 cwlVersion: v1.0
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
-id: vep_annotate_tin_daisy
+id: vep_annotate_tin_daisy_v100
 baseCommand:
   - /usr/bin/perl
   - /usr/local/VEP_annotate/src/SomaticWrapper.pl

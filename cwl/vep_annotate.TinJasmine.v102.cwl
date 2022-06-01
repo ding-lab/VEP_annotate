@@ -2,7 +2,7 @@ class: CommandLineTool
 cwlVersion: v1.0
 $namespaces:
   sbg: 'https://www.sevenbridges.com/'
-id: vep_annotate_tin_daisy_v102
+id: vep_annotate_tin_jasmine_v102
 baseCommand:
   - /usr/bin/perl
   - /usr/local/VEP_annotate/src/SomaticWrapper.pl
@@ -37,31 +37,30 @@ inputs:
     doc: Path to VEP custom annotation file
     secondaryFiles:
       - .tbi
+  - id: custom_args
+    type: string?
+    inputBinding:
+      position: 0
+      prefix: '--custom_args'
+    doc: >-
+      Arguments passed to VEP custom annotation.  Required if custom_filename
+      defined
 outputs:
   - id: output_dat
     type: File
     outputBinding:
       glob: results/vep/output_vep.vcf
-label: vep_annotate TinDaisy v102
+label: vep_annotate TinJasmine v102
 arguments:
   - position: 0
     prefix: '--results_dir'
     valueFrom: results
   - position: 0
     prefix: '--vep_opts'
-    valueFrom: >-
-      --hgvs --shift_hgvs 1 --no_escape --symbol --numbers --ccds --uniprot
-      --xref_refseq --sift b --tsl --canonical --total_length --allele_number
-      --variant_class --biotype --appris --flag_pick_allele --check_existing
-      --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af
-      --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4 
-  - position: 0
-    prefix: '--custom_args'
-    valueFrom: >-
-      ClinVar,vcf,exact,0,AF_ESP,AF_EXAC,AF_TGP,ALLELEID,CLNDN,CLNDNINCL,CLNDISDB,CLNDISDBINCL,CLNHGVS,CLNREVSTAT,CLNSIG,CLNSIGCONF,CLNSIGINCL,CLNVC,CLNVCSO,CLNVI,DBVARID,GENEINFO,MC,ORIGIN,RS,SSR
+    valueFrom: '--buffer_size 500  --fork 4 --failed 0 --everything --af_exac'
   - position: 0
     prefix: '--vep_cache_version'
-    valueFrom: '102'
+    valueFrom: '100'
   - position: 0
     prefix: '--assembly'
     valueFrom: GRCh38
