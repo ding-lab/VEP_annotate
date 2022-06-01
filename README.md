@@ -2,7 +2,17 @@
 
 VEP annotator based on TinDaisy-Core and GenomeVIP
 
-IMAGE="mwyczalkowski/vep-annotate:20200608"
+this branch generates annotation with different VEP versions, including
+* VEP v99 / GENCODE v33
+* VEP v100 / GENCODE v34
+* VEP v102 / GENCODE v36
+
+Each has its own docker image tag
+
+IMAGE_V99="mwyczalkowski/vep-annotate:20220505-v99"
+IMAGE_V100="mwyczalkowski/vep-annotate:20220505-v100"
+IMAGE_V102="mwyczalkowski/vep-annotate:20220505-v102"
+
 
 ## VEP Cache 
 
