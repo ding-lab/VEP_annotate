@@ -57,7 +57,7 @@ arguments:
     valueFrom: results
   - position: 0
     prefix: '--vep_opts'
-    valueFrom: '--buffer_size 500  --fork 4 --failed 0 --everything --af_exac'
+    valueFrom: '--buffer_size 50  --fork 4 --failed 0 --everything --af_exac'
   - position: 0
     prefix: '--vep_cache_version'
     valueFrom: '100'
