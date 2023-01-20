@@ -80,7 +80,7 @@ arguments:
 # --buffer_size 10000  --fork 4
 
 # Value for TinJasmine
-    valueFrom: '--buffer_size 500  --fork 4 --failed 0 --everything --af_exac'
+    valueFrom: '--buffer_size 50  --fork 4 --failed 0 --everything --af_exac'
 requirements:
   - class: ShellCommandRequirement
   - class: DockerRequirement

@@ -54,7 +54,7 @@ arguments:
       --xref_refseq --sift b --tsl --canonical --total_length --allele_number
       --variant_class --biotype --appris --flag_pick_allele --check_existing
       --failed 1 --minimal --pick_order biotype,rank,canonical --af --max_af
-      --af_1kg --af_esp --af_gnomad --buffer_size 500  --fork 4 
+      --af_1kg --af_esp --af_gnomad --buffer_size 50  --fork 4 
   - position: 0
     prefix: '--custom_args'
     valueFrom: >-
