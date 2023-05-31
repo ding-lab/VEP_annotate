@@ -41,17 +41,11 @@ RUN cpanm Archive::Zip DBD::mysql DBI
 # See here for discussion of caches: https://www.ensembl.org/info/docs/tools/vep/script/vep_cache.html
 # Will also install all available plugins, so that gnomAD can be used in the future
 
-#RUN cd /usr/local \
-#    && git clone --depth 1 --branch "release/102.0" https://github.com/Ensembl/ensembl-vep.git \
-#    && cd /usr/local/ensembl-vep \
-#    && perl INSTALL.pl /data/D_Ensembl -a a
-
 RUN cd /usr/local \
     && git clone https://github.com/Ensembl/ensembl-vep.git \
     && cd /usr/local/ensembl-vep \
-    && git checkout release/102.0 \
+    && git checkout release/95.3 \
     && perl INSTALL.pl -n -a ap --PLUGINS all
-
 COPY docker/vimrc /root/.vimrc
 
 COPY . /usr/local/VEP_annotate
